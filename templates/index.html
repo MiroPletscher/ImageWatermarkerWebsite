@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Watermarker by Miro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='assets/copyright.svg') }}">
+</head>
+<body>
+    <div class="group">
+        <div class="title-group">
+            <h1>Image Watermarker</h1>
+            <p>by Miro Pletscher</p>
+        </div>
+        <div class="container">
+            <div id="left">
+                <div id="watermark-input-group">
+                    <h3>Watermark Image</h3>
+                    <div id="opacity-input-group">
+                        <p>Opacity: </p>
+                        <input id="opacity-input" type="text" name="watermark-opacity" value="20" required>
+                        <p>%</p>
+                    </div>
+                    <!--div id="scale-input-group">
+                        <p>Scale: </p>
+                        <input id="scale-input" type="text" name="watermark-scale" value="1" required>
+                    </div-->
+                    <input type="file" id="watermark-input" accept="image/*" required>
+                </div>
+                <div id="image-input-group">
+                    <h3>Image Upload</h3>
+                    <input type="file" id="file-input" accept="image/*" multiple required>
+                </div>
+                <button id="submit-button" onclick="uploadImages()">Process Images</button>
+            </div>
+            <div id="seperation-line"></div>
+            <div id="right">
+                <p id="status-text">Upload images before downloading.</p>
+                <button id="download-button" onclick="downloadImages()">Download Images</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
