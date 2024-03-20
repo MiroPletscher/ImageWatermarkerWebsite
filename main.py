@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 import base64
+from threading import Thread
 
 app = Flask(__name__)
 app.secret_key = "7d5c2a2d6136fbf166211d5183bf66214a247f31"
@@ -68,4 +69,5 @@ def index():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80)
+    t = Thread(target=app.run(host="0.0.0.0", port=80))
+    t.start()
