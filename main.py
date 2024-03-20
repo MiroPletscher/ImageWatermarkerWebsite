@@ -67,7 +67,3 @@ def index():
 
         return jsonify({'watermarked_images': watermarked_images}), 200
     return render_template("index.html")
-
-if __name__ == "__main__":
-    t = Thread(target=app.run(host="0.0.0.0", port=80))
-    t.start()
